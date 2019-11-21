@@ -10,6 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+
+using Todos.Models;
 
 namespace Todos
 {
@@ -37,6 +42,7 @@ namespace Todos
                 builder.WithMethods("DELETE", "PUT");
               });
       });
+      services.AddScoped<TodoContext>();
       services.AddControllers();
     }
 
